@@ -1,0 +1,9 @@
+# After ssh'ing to the new VM, we update and install
+# apache as our webserver
+sudo apt update && sudo apt -y install apache2
+
+# Check that apache is indeed running
+sudo systemctl status apache2
+
+# Overwrite the default file served up (index.html) with content we want.
+echo '<!doctype html><html><body><h1>Hello CS 5346/7346 Spring 20212</h1></body></html>' | sudo tee /var/www/html/index.html
