@@ -4,4 +4,4 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-CMD [ "python3", "./myscript.py"
+CMD [ "python3", "./myscript.py" ]
