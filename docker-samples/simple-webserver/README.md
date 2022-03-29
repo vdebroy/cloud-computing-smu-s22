@@ -16,10 +16,10 @@ $ docker build -t webserver .
 
 ## Run
 ```sh
-$ docker run -d -p 80:80 webserver
+$ docker run -d -p 8080:8080 webserver
 ```
 
-## Dokerfile
+## Dockerfile
 
 ```dockerfile
 FROM debian:9.3-slim
@@ -48,7 +48,7 @@ COPY . /var/www/html
 
 WORKDIR /var/www/html
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD node webserver.js
 ```
