@@ -36,3 +36,8 @@ How about a secret?
 And what if we wanted to run under a service account?
 
     gcloud run deploy simple-webserver --image=gcr.io/smu-5346-s22/simple-webserver:1 --region=us-central1 --allow-unauthenticated --set-env-vars=ENV_TEST=dummy --set-secrets=SECRET_TEST=<secret_name>:<version> --service-account=<service_acount_fullname>
+
+## Your standard Cloud Build Command
+
+    gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/YOUR_SERVICE_NAME
+    gcloud builds submit --tag gcr.io/smu-5346-s22/simple-webserver
