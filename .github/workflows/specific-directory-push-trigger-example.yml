@@ -5,7 +5,7 @@ name: Specific Directory Push Triggered Workflow
 on:
   push:
     paths:
-    - 'docker-examples/**'
+    - 'docker-samples/**'
 
 jobs:
   echo-on-push:
