@@ -12,3 +12,9 @@ jobs:
     steps:
     - name: 'Echo something'
       run: 'echo I was triggered and here is proof.'  
+      
+    - name: 'List directory'
+      run: 'ls'
+      
+    - name: 'Show where I am'
+      run: 'pwd'      
