@@ -41,3 +41,5 @@ And what if we wanted to run under a service account?
 
     gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/YOUR_SERVICE_NAME
     gcloud builds submit --tag gcr.io/smu-5346-s22/simple-webserver
+
+
