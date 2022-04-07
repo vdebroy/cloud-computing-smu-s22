@@ -1,9 +1,11 @@
 # This is a basic workflow that is triggered on push
 
-name: Basic Push Triggered Workflow
+name: Specific Directory Push Triggered Workflow
 
 on:
-  push
+  push:
+    paths:
+    - 'docker-examples/**'
 
 jobs:
   echo-on-push:
