@@ -1,0 +1,14 @@
+# This is a basic workflow that is triggered on push
+
+name: Basic Push Triggered Workflow
+
+on:
+  push
+
+jobs:
+  echo-on-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 'Keep echoing'
+      run: 'echo I was hopefully only triggered because we made changes to the docker-samples directory'  
