@@ -6,7 +6,7 @@ on:
   push
 
 jobs:
-  Echo on Push:
+  echo-on-push:
     runs-on: ubuntu-latest
 
     steps:
