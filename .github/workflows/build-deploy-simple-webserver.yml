@@ -1,0 +1,34 @@
+name: Build Deploy Simple Web Server
+
+on:
+  push:
+    paths:
+    - 'docker-samples/simple-webserver/**'
+
+jobs:
+  demo-parallelism:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 'Nothing meaninful'
+      run: 'echo Silly V'
+      
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: 'actions/checkout@v3'
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+       
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v0'
+      
+    - name: 'Submit to cloud build'
+      run: |
+        cd docker-samples/simple-webserver
+        gcloud builds submit --tag gcr.io/smu-5346-s22/simple-webserver
