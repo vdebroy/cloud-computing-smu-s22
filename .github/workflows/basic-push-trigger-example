@@ -1,0 +1,14 @@
+# This is a basic workflow that is triggered on push
+
+name: Basic Push Triggered Workflow
+
+on:
+  push
+
+jobs:
+  Echo on Push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 'Say Hello'
+      run: 'echo Hello'  
