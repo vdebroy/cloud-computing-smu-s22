@@ -13,7 +13,6 @@ jobs:
     - name: 'Nothing meaninful'
       run: 'echo Silly V'
       
-jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
