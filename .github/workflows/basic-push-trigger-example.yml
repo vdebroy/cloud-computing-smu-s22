@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 'Say Hello'
-      run: 'echo Hello'  
+    - name: 'Echo something'
+      run: 'echo I was triggered and here is proof.'  
