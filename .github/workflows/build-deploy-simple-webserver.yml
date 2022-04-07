@@ -31,3 +31,6 @@ jobs:
       run: |
         cd docker-samples/simple-webserver
         gcloud builds submit --tag gcr.io/smu-5346-s22/simple-webserver
+
+    - name: 'Deploy to Cloud Run'
+      run: gcloud run deploy simple-webserver --image=gcr.io/smu-5346-s22/simple-webserver:latest --region=us-central1 --allow-unauthenticated
