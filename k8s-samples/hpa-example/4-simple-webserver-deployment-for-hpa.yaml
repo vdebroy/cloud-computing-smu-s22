@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: hpa-example
+  name: simple-webserver-deployment
+  labels:
+    app: simple-webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-webserver
+  template:
+    metadata:
+      labels:
+        app: simple-webserver
+    spec:
+      containers:
+      - name: simple-webserver
+        image: gcr.io/smu-5346-s22/simple-webserver:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "25m"
