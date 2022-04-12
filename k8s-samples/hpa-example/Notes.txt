@@ -1,0 +1,22 @@
+# Creating a namepace
+kubectl create ns hpa-example
+
+# Create the deployment
+kubectl apply -f 1-simple-webserver-deployment.yaml
+
+# Create the LB service
+kubectl apply -f 2-simple-webserver-lb-svc.yaml
+
+# Create the internal service
+kubectl apply -f 3-simple-webserver-internal-svc.yaml
+
+# Set up our HPA
+kubectl -n hpa-example autoscale deployment simple-webserver-deployment --cpu-percent=4 --min=1 --max=10
+kubectl -n hpa-example get hpa
+kubectl -n hpa-example get hpa simple-webserver-deployment
+
+# Set up some Load Generation
+kubectl run -i --tty load-generator --rm --image=busybox:1.28 --namespace hpa-example --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://simple-webserver-internal-svc; done"
+
+# Get rid of our HPA
+kubectl -n hpa-example delete hpa simple-webserver-deployment
